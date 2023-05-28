@@ -1,0 +1,1939 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="咸鱼">
+      
+      
+      
+        <link rel="prev" href="../../%E9%93%BE%E8%B7%AF%E7%8A%B6%E6%80%81%E8%B7%AF%E7%94%B1%E5%8D%8F%E8%AE%AE%EF%BC%88Link%20State%20Routing%20Protocol%EF%BC%89/IS-IS%E5%8D%8F%E8%AE%AE/">
+      
+      
+        <link rel="next" href="../OSFP%E5%8D%8F%E8%AE%AE/">
+      
+      <link rel="icon" href="../../../../img/logo.svg">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.11">
+    
+    
+      
+        <title>RIP协议 - 咸鱼的知识库</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.85bb2934.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#rip" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="https://docs.xianyu.one" title="咸鱼的知识库" class="md-header__button md-logo" aria-label="咸鱼的知识库" data-md-component="logo">
+      
+  <img src="../../../../img/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            咸鱼的知识库
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              RIP协议
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../.." class="md-tabs__link">
+      介绍
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../../URL/" class="md-tabs__link">
+      ⚙️常用工具合集
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../LinuxAdmin/" class="md-tabs__link">
+        Linux管理员
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../%E7%AE%80%E4%BB%8B/%E7%AE%80%E4%BB%8B/" class="md-tabs__link md-tabs__link--active">
+        网络协议知识
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../docker/" class="md-tabs__link">
+        🐋Docker
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../desktop/" class="md-tabs__link">
+        🖥️桌面系统
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../game/Xbox/" class="md-tabs__link">
+        🎮游戏
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../openSource/" class="md-tabs__link">
+        开源项目专栏
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://docs.xianyu.one" title="咸鱼的知识库" class="md-nav__button md-logo" aria-label="咸鱼的知识库" data-md-component="logo">
+      
+  <img src="../../../../img/logo.svg" alt="logo">
+
+    </a>
+    咸鱼的知识库
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        介绍
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../URL/" class="md-nav__link">
+        ⚙️常用工具合集
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Linux管理员
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Linux管理员
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../LinuxAdmin/" class="md-nav__link">
+        简介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../LinuxAdmin/install_linux/" class="md-nav__link">
+        安装操作系统
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+          网络管理
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          网络管理
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../LinuxAdmin/network-setting/" class="md-nav__link">
+        简明教程
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+          包管理专题
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          包管理专题
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../LinuxAdmin/package_management/CentOS/" class="md-nav__link">
+        CentOS/RHEL/Fedora下的软件包管理
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../LinuxAdmin/ssh/" class="md-nav__link">
+        SSH
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+          部署服务专题
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_6">
+          <span class="md-nav__icon md-icon"></span>
+          部署服务专题
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../LinuxAdmin/deploy_services/Apache/Apache/" class="md-nav__link">
+        安装使用Apache
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          网络协议知识
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          网络协议知识
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+          简介
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          简介
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%AE%80%E4%BB%8B/%E7%AE%80%E4%BB%8B/" class="md-nav__link">
+        简介
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+          三层路由协议
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          三层路由协议
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_2_1" id="__nav_4_2_1_label" tabindex="0">
+          链路状态路由协议（Link State Routing Protocol）
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          链路状态路由协议（Link State Routing Protocol）
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E9%93%BE%E8%B7%AF%E7%8A%B6%E6%80%81%E8%B7%AF%E7%94%B1%E5%8D%8F%E8%AE%AE%EF%BC%88Link%20State%20Routing%20Protocol%EF%BC%89/IS-IS%E5%8D%8F%E8%AE%AE/" class="md-nav__link">
+        IS-IS协议
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_2_2" id="__nav_4_2_2_label" tabindex="0">
+          内部网关协议（IGP）
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_4_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          内部网关协议（IGP）
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          RIP协议
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        RIP协议
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#rip_1" class="md-nav__link">
+    RIP协议路由器的交互示例
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ripv1ripv2" class="md-nav__link">
+    RIPv1和RIPv2协议之间的区别
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OSFP%E5%8D%8F%E8%AE%AE/" class="md-nav__link">
+        OSFP协议
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_2_3" id="__nav_4_2_3_label" tabindex="0">
+          外部网关协议（EGP）
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          外部网关协议（EGP）
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%A4%96%E9%83%A8%E7%BD%91%E5%85%B3%E5%8D%8F%E8%AE%AE%EF%BC%88EGP%EF%BC%89/BGP%E5%8D%8F%E8%AE%AE/" class="md-nav__link">
+        BGP协议
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          🐋Docker
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          🐋Docker
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../docker/" class="md-nav__link">
+        简介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../docker/install/" class="md-nav__link">
+        安装
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../docker/parameter/" class="md-nav__link">
+        Docker参数详解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../docker/install-docker-compose/" class="md-nav__link">
+        安装Docker-Compose
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../docker/dockercompose-exam/" class="md-nav__link">
+        Docker-Compose配置文件模板
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          🖥️桌面系统
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          🖥️桌面系统
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../desktop/" class="md-nav__link">
+        简介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+          navicat安装
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6_2">
+          <span class="md-nav__icon md-icon"></span>
+          navicat安装
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../desktop/dev/navicat/" class="md-nav__link">
+        简介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../desktop/dev/navicat/make/" class="md-nav__link">
+        前置准备（编译安装软件）
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../desktop/dev/navicat/use/" class="md-nav__link">
+        激活产品
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
+          vscode安装和使用
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6_3">
+          <span class="md-nav__icon md-icon"></span>
+          vscode安装和使用
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../desktop/dev/vscode/" class="md-nav__link">
+        安装和使用
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          🎮游戏
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          🎮游戏
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_1" id="__nav_7_1_label" tabindex="0">
+          Xbox
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_7_1">
+          <span class="md-nav__icon md-icon"></span>
+          Xbox
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../game/Xbox/" class="md-nav__link">
+        简介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../game/Xbox/buy-xbox/" class="md-nav__link">
+        次世代Xbox选购指北
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
+          NintendoSwitch
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_7_2">
+          <span class="md-nav__icon md-icon"></span>
+          NintendoSwitch
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../game/Switch/" class="md-nav__link">
+        简介
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+          开源项目专栏
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          开源项目专栏
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../openSource/" class="md-nav__link">
+        简介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_2" id="__nav_8_2_label" tabindex="0">
+          服务器专题
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_8_2">
+          <span class="md-nav__icon md-icon"></span>
+          服务器专题
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../openSource/server/AdGuardHome/" class="md-nav__link">
+        AdGuardHome —— 简单易用，支持广告拦截的DNS服务器
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../openSource/server/next-terminal/" class="md-nav__link">
+        Next Terminal —— 小巧易用的远程桌面网关
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../openSource/server/awesome-ttrss/" class="md-nav__link">
+        🐋 Awesome TTRSS —— 一站式TTRSS解决方案
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_3" id="__nav_8_3_label" tabindex="0">
+          桌面端专题
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_8_3">
+          <span class="md-nav__icon md-icon"></span>
+          桌面端专题
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../openSource/desktop/Motrix/" class="md-nav__link">
+        Motrix —— 全能的下载工具
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_4" id="__nav_8_4_label" tabindex="0">
+          影视专题
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_8_4">
+          <span class="md-nav__icon md-icon"></span>
+          影视专题
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../openSource/movie/YYeTsBot/" class="md-nav__link">
+        YYeTsBot —— 🎬人人影视bot，完全对接人人影视全部无删减资源
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_5" id="__nav_8_5_label" tabindex="0">
+          博客专题
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_8_5">
+          <span class="md-nav__icon md-icon"></span>
+          博客专题
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../openSource/blog/gridea/" class="md-nav__link">
+        Gridea —— 一个静态博客写作客户端
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../openSource/blog/hexo-theme-nexmoe/" class="md-nav__link">
+        nexmoe —— 🔥一个比较特别的 Hexo 主题
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../openSource/blog/hexo-theme-matery/" class="md-nav__link">
+        matery —— 全能的hexo博客主题
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../openSource/blog/hexo-theme-ayer/" class="md-nav__link">
+        ayer —— 一个干净优雅的hexo主题 A clean and elegant theme for Hexo. 🐋
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8_6" id="__nav_8_6_label" tabindex="0">
+          未分类
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_8_6">
+          <span class="md-nav__icon md-icon"></span>
+          未分类
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../openSource/unable/trackerlist/" class="md-nav__link">
+        TrackersListCollection —— 全网最全Tracker列表
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#rip_1" class="md-nav__link">
+    RIP协议路由器的交互示例
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ripv1ripv2" class="md-nav__link">
+    RIPv1和RIPv2协议之间的区别
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+
+
+
+
+<blockquote>
+<p>RIP（Routing Information Protocol）是一种距离向量协议，用于在自治系统内部的路由器之间进行路由选择。RIP使用跳数（hop count）作为路由度量，通过交换路由表信息来确定最佳路径。</p>
+</blockquote>
+<h1 id="rip">RIP协议的基本原理</h1>
+<ol>
+<li>
+<p>路由表更新：每个RIP路由器维护自己的路由表，其中包含了到达不同目的地的跳数和下一跳路由器的信息。初始时，每个路由器只知道直接连接的网络。</p>
+</li>
+<li>
+<p>路由表交换：RIP路由器周期性地向相邻路由器发送路由表更新消息，称为RIP报文。这些报文包含了该路由器所知道的所有路由表信息。</p>
+</li>
+<li>
+<p>路由表更新处理：当一个RIP路由器收到其他路由器发送的路由表更新消息时，它会将更新的路由信息与自己的路由表进行比较。如果新的路由信息更优（跳数更少），路由器会更新自己的路由表并将变化的信息通知给其他路由器。</p>
+</li>
+<li>
+<p>路由选择：RIP路由器使用距离向量算法（distance-vector algorithm）选择到达目的地的最佳路径。它选择具有最小跳数的路径作为最佳路径。</p>
+</li>
+<li>
+<p>定时更新和失效：RIP路由器周期性地发送路由表更新消息，以确保路由信息保持最新。如果一条路由在一定时间内没有收到更新消息，该路由会被标记为失效并从路由表中删除。</p>
+</li>
+</ol>
+<h2 id="rip_1">RIP协议路由器的交互示例</h2>
+<pre class="mermaid"><code>graph LR
+  R1((路由器1)) -- 发送路由表 --&gt; R2((路由器2))
+  R2((路由器2)) -- 发送路由表 --&gt; R3((路由器3))
+  R3((路由器3)) -- 发送路由表 --&gt; R1((路由器1))
+  R1 -- 收到更新的路由表 --&gt; R2
+  R2 -- 收到更新的路由表 --&gt; R3
+  R3 -- 收到更新的路由表 --&gt; R1</code></pre>
+<pre class="mermaid"><code>graph LR
+    A[路由器A] -- 发送RIPv2请求 --&gt; B[路由器B]
+    B -- 发送RIPv2响应 --&gt; A
+    A -- 发送RIPv2更新 --&gt; B
+    B -- 发送RIPv2更新 --&gt; C[路由器C]
+    C -- 发送RIPv2更新 --&gt; B
+    B -- 发送RIPv2更新 --&gt; A
+</code></pre>
+<ol>
+<li>
+<p>路由器A和路由器B直接相连，它们位于同一个自治系统内。</p>
+</li>
+<li>
+<p>路由器A周期性地向路由器B发送RIP报文，其中包含了它所知道的路由信息。</p>
+</li>
+<li>
+<p>路由器B收到来自路由器A的RIP报文，将其中的路由信息与自己的路由表进行比较。</p>
+</li>
+<li>
+<p>如果新的路由信息更优，路由器B更新自己的路由表，并向路由器A发送更新消息以通知变化。</p>
+</li>
+<li>
+<p>路由器A接收到来自路由器B的更新消息，更新自己的路由表。</p>
+</li>
+<li>
+<p>路由器A和路由器B之间通过交换RIP报文，相互更新路由表，以便选择到达目的地的最佳路径。</p>
+</li>
+</ol>
+<h2 id="ripv1ripv2">RIPv1和RIPv2协议之间的区别</h2>
+<p>RIPv1（Routing Information Protocol Version 1）和RIPv2（Routing Information Protocol Version 2）都是基于距离向量的路由协议，但存在以下区别：</p>
+<ol>
+<li>
+<p>子网掩码支持：RIPv1不支持子网掩码的传输，它默认将所有网络看作是类别掩码（classful mask）。这导致RIPv1无法支持可划分子网（subnetting）的网络环境。而RIPv2支持传输子网掩码信息，可以正确处理可划分子网的网络。</p>
+</li>
+<li>
+<p>路由更新广播方式：RIPv1使用广播方式发送路由更新消息，将路由表广播到所有邻居路由器。这种方式在小型网络中效果良好，但在大型网络中会产生较大的网络流量。RIPv2引入了多播方式发送路由更新消息，只将路由表发送给特定的多播组，减少了网络流量。</p>
+</li>
+<li>
+<p>身份验证和安全性：RIPv1不提供身份验证机制，缺乏安全性保护。任何连接到网络的路由器都可以发送RIPv1消息，并可能对路由表造成破坏。RIPv2引入了认证机制，可以对路由器进行身份验证，提高了协议的安全性。</p>
+</li>
+<li>
+<p>支持的路由条目数量：RIPv1最多支持15跳数，限制了网络的规模。而RIPv2可以支持更大的网络规模，允许更多的跳数。</p>
+</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>总的来说，RIPv1是较为简单和传统的协议，适用于小型网络。而RIPv2具有更多的功能和安全性，适用于复杂的网络环境和大型网络。</p>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2019 - <script>document.write(new Date().getFullYear())</script> <a href="https://blog.xianyu.one" target="_blank">Xianyu</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://twitter.com/xianyu_one" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+      </a>
+    
+      
+      
+      <a href="mailto:me@xianyu.one" target="_blank" rel="noopener" title="" class="md-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m20 8-8 5-8-5V6l8 5 8-5m0-2H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Z"/></svg>
+      </a>
+    
+    <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" style="position:relative; top: 13px;">
+        <svg xmlns="http://www.w3.org/2000/svg" height="32px" width="91px" version="1.1" y="0px" x="0px" viewBox="0 0 88 31">
+            <title>Creative Commons “Attribution-Share Alike” license icon</title>
+            <path d="m2.499 0.352l83.127 0.148c1.161 0 2.198-0.173 2.198 2.333l-0.102 27.552h-87.321v-27.655c0-1.235 0.119-2.378 2.098-2.378z" fill="#AAB2AB"/>
+            <path d="m25.316 14.449c0.003 5.557-4.471 10.065-9.993 10.069-5.522 0.003-10.001-4.5-10.005-10.057v-0.012c-0.003-5.558 4.471-10.066 9.994-10.069 5.522-0.004 10.001 4.5 10.005 10.057-0.001 0.003-0.001 0.007-0.001 0.012zm21.148-11.143c4.349 0 7.875 3.548 7.875 7.925s-3.526 7.926-7.875 7.926c-4.35 0-7.875-3.548-7.875-7.926-0.001-4.377 3.525-7.925 7.875-7.925zm28.632 7.751c0.003 4.314-3.47 7.814-7.757 7.818-4.286 0.003-7.765-3.492-7.769-7.806v-0.012c-0.002-4.314 3.471-7.814 7.758-7.817s7.765 3.492 7.768 7.806v0.011z" fill="#FFF"/>
+            <path d="m23.446 6.252c2.217 2.232 3.326 4.964 3.326 8.197s-1.089 5.936-3.269 8.11c-2.313 2.289-5.046 3.434-8.2 3.434-3.116 0-5.802-1.135-8.057-3.405-2.256-2.271-3.383-4.982-3.383-8.138s1.127-5.889 3.383-8.198c2.198-2.232 4.884-3.348 8.057-3.348 3.212 0 5.926 1.116 8.143 3.348zm-14.707 1.501c-1.875 1.905-2.812 4.138-2.812 6.698 0 2.561 0.928 4.773 2.783 6.64s4.064 2.801 6.627 2.801 4.791-0.942 6.684-2.829c1.797-1.752 2.697-3.955 2.697-6.611 0-2.636-0.914-4.874-2.74-6.712s-4.04-2.757-6.641-2.757-4.801 0.923-6.598 2.77zm4.933 5.572c-0.287-0.628-0.715-0.942-1.287-0.942-1.011 0-1.516 0.685-1.516 2.054 0 1.37 0.505 2.055 1.516 2.055 0.667 0 1.145-0.333 1.431-1.002l1.401 0.751c-0.668 1.194-1.67 1.792-3.006 1.792-1.03 0-1.856-0.317-2.476-0.954-0.621-0.636-0.931-1.512-0.931-2.629 0-1.099 0.32-1.97 0.959-2.616s1.436-0.968 2.39-0.968c1.413 0 2.424 0.56 3.035 1.679l-1.516 0.78zm6.593 0c-0.287-0.628-0.707-0.942-1.261-0.942-1.031 0-1.547 0.685-1.547 2.054 0 1.37 0.516 2.055 1.547 2.055 0.669 0 1.137-0.333 1.404-1.002l1.433 0.751c-0.667 1.194-1.667 1.792-3.001 1.792-1.029 0-1.853-0.317-2.473-0.954-0.619-0.636-0.928-1.512-0.928-2.629 0-1.099 0.314-1.97 0.943-2.616 0.628-0.646 1.428-0.968 2.4-0.968 1.41 0 2.42 0.56 3.029 1.679l-1.546 0.78zm66.088-13.325h-84.706c-0.908 0-1.647 0.744-1.647 1.658v28.967c0 0.207 0.167 0.375 0.372 0.375h87.256c0.205 0 0.372-0.168 0.372-0.375v-28.967c0-0.914-0.739-1.658-1.647-1.658zm-84.706 0.749h84.705c0.498 0 0.903 0.408 0.903 0.909v20.109h-60.541c-2.219 4.038-6.494 6.779-11.401 6.779-4.908 0-9.183-2.738-11.4-6.779h-3.169v-20.109c0-0.501 0.405-0.909 0.903-0.909zm65.63 1.751c-2.355 0-4.349 0.827-5.98 2.481-1.675 1.712-2.512 3.737-2.512 6.077s0.837 4.351 2.512 6.034c1.674 1.683 3.668 2.524 5.98 2.524 2.342 0 4.371-0.849 6.089-2.546 1.616-1.611 2.427-3.616 2.427-6.012s-0.824-4.422-2.471-6.077c-1.645-1.654-3.66-2.481-6.045-2.481zm0.022 1.54c1.93 0 3.569 0.685 4.918 2.054 1.361 1.355 2.043 3.01 2.043 4.964 0 1.968-0.666 3.602-2.001 4.9-1.405 1.397-3.058 2.096-4.96 2.096-1.901 0-3.541-0.691-4.917-2.074-1.376-1.384-2.064-3.024-2.064-4.921s0.695-3.552 2.086-4.964c1.332-1.371 2.965-2.055 4.895-2.055zm-3.791 5.809c0.34-2.153 1.846-3.304 3.733-3.304 2.716 0 4.369 1.982 4.369 4.626 0 2.58-1.76 4.584-4.411 4.584-1.824 0-3.457-1.13-3.755-3.347h2.143c0.063 1.151 0.806 1.556 1.866 1.556 1.209 0 1.994-1.13 1.994-2.857 0-1.812-0.679-2.771-1.951-2.771-0.934 0-1.739 0.341-1.909 1.513l0.623-0.003-1.687 1.697-1.686-1.697 0.671 0.003zm-14.765-0.911c0-0.306-0.246-0.553-0.55-0.553h-3.478c-0.303 0-0.55 0.247-0.55 0.553v3.5h0.971v4.145h2.636v-4.145h0.971v-3.5zm-2.288-3.408c0.656 0 1.189 0.536 1.189 1.197s-0.533 1.197-1.189 1.197c-0.657 0-1.189-0.536-1.189-1.197s0.532-1.197 1.189-1.197zm-0.012-3.03c-2.355 0-4.349 0.827-5.981 2.481-1.675 1.711-2.512 3.737-2.512 6.076s0.837 4.351 2.512 6.034c1.674 1.683 3.668 2.524 5.981 2.524 2.342 0 4.371-0.849 6.088-2.547 1.619-1.611 2.428-3.615 2.428-6.012s-0.823-4.421-2.47-6.076c-1.645-1.654-3.661-2.48-6.046-2.48zm0.022 1.539c1.93 0 3.569 0.685 4.917 2.054 1.363 1.355 2.044 3.01 2.044 4.963 0 1.968-0.666 3.602-2.001 4.9-1.405 1.398-3.058 2.096-4.96 2.096-1.901 0-3.541-0.691-4.917-2.075-1.377-1.383-2.065-3.023-2.065-4.921 0-1.896 0.695-3.551 2.086-4.963 1.334-1.369 2.966-2.054 4.896-2.054z"/>
+            <path d="m69.277 24.171l1.816 4.888h-1.109l-0.367-1.089h-1.816l-0.381 1.089h-1.074l1.836-4.888h1.095zm0.062 2.997l-0.612-1.793h-0.014l-0.633 1.793h1.259zm-6.079 0.682c0.059 0.115 0.137 0.207 0.234 0.277 0.098 0.071 0.211 0.124 0.342 0.158 0.133 0.034 0.268 0.051 0.408 0.051 0.095 0 0.197-0.008 0.306-0.023s0.21-0.047 0.306-0.093c0.094-0.046 0.174-0.108 0.236-0.188 0.064-0.08 0.096-0.181 0.096-0.305 0-0.132-0.042-0.238-0.126-0.321-0.083-0.083-0.194-0.15-0.329-0.206-0.136-0.055-0.29-0.102-0.461-0.143-0.173-0.042-0.348-0.088-0.523-0.138-0.182-0.046-0.358-0.102-0.531-0.167-0.171-0.066-0.325-0.152-0.461-0.258-0.137-0.104-0.246-0.235-0.33-0.393-0.083-0.158-0.125-0.349-0.125-0.572 0-0.252 0.053-0.469 0.16-0.654 0.105-0.184 0.246-0.338 0.418-0.462 0.172-0.123 0.366-0.214 0.584-0.274 0.217-0.059 0.436-0.088 0.652-0.088 0.254 0 0.497 0.028 0.73 0.086 0.232 0.057 0.44 0.149 0.621 0.277 0.182 0.127 0.326 0.291 0.432 0.49 0.107 0.198 0.16 0.439 0.16 0.723h-1.036c-0.009-0.146-0.04-0.268-0.091-0.363-0.053-0.096-0.121-0.172-0.207-0.227s-0.184-0.094-0.295-0.115c-0.11-0.023-0.23-0.035-0.361-0.035-0.086 0-0.172 0.01-0.258 0.027-0.086 0.019-0.163 0.051-0.232 0.096-0.07 0.047-0.129 0.104-0.174 0.172s-0.067 0.155-0.067 0.26c0 0.096 0.019 0.174 0.054 0.232 0.037 0.061 0.109 0.115 0.215 0.165s0.254 0.101 0.441 0.151c0.188 0.049 0.434 0.113 0.736 0.191 0.092 0.018 0.217 0.051 0.377 0.1 0.161 0.047 0.32 0.123 0.479 0.229 0.159 0.105 0.296 0.246 0.412 0.422 0.115 0.176 0.173 0.4 0.173 0.674 0 0.225-0.044 0.432-0.13 0.623-0.086 0.192-0.214 0.357-0.384 0.496-0.171 0.141-0.381 0.248-0.632 0.326-0.252 0.078-0.544 0.116-0.874 0.116-0.268 0-0.527-0.033-0.779-0.1-0.251-0.065-0.474-0.171-0.667-0.312-0.192-0.143-0.346-0.323-0.459-0.543-0.113-0.219-0.168-0.479-0.163-0.78h1.036c-0.001 0.165 0.028 0.304 0.087 0.418zm-17.287-3.679h1.198l1.138 1.931 1.13-1.931h1.19l-1.803 3.012v1.876h-1.07v-1.903l-1.783-2.985zm-1.975 0c0.231 0 0.442 0.021 0.633 0.062s0.354 0.108 0.491 0.201c0.136 0.094 0.241 0.219 0.316 0.373 0.075 0.155 0.112 0.348 0.112 0.575 0 0.247-0.055 0.451-0.167 0.616-0.11 0.164-0.276 0.298-0.493 0.402 0.3 0.088 0.523 0.239 0.672 0.456 0.148 0.218 0.223 0.479 0.223 0.784 0 0.246-0.049 0.46-0.144 0.641-0.095 0.18-0.224 0.327-0.386 0.441-0.161 0.114-0.346 0.199-0.552 0.254-0.207 0.055-0.419 0.082-0.638 0.082h-2.358v-4.888h2.291v0.001zm-0.137 1.976c0.191 0 0.347-0.046 0.47-0.136 0.123-0.092 0.185-0.239 0.185-0.444 0-0.114-0.021-0.208-0.062-0.28s-0.095-0.129-0.164-0.17-0.146-0.07-0.235-0.086c-0.089-0.016-0.181-0.023-0.276-0.023h-1v1.14h1.082zm0.062 2.075c0.105 0 0.205-0.01 0.3-0.03 0.095-0.021 0.18-0.055 0.252-0.104 0.073-0.047 0.13-0.112 0.174-0.194s0.065-0.187 0.065-0.315c0-0.25-0.071-0.43-0.212-0.536-0.141-0.107-0.328-0.161-0.559-0.161h-1.166v1.341h1.146z" fill="#FFF"/>
+        </svg> 
+    </a>
+  </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.expand", "content.code.annotate"], "search": "../../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.fac441b0.min.js"></script>
+      
+    
+  </body>
+</html>
