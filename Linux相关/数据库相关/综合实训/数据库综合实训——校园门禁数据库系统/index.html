@@ -1,0 +1,4044 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="咸鱼">
+      
+      
+      
+        <link rel="prev" href="../../%E8%A7%86%E5%9B%BE%E6%93%8D%E4%BD%9C/%E8%A7%86%E5%9B%BE%E6%93%8D%E4%BD%9C/">
+      
+      
+        <link rel="next" href="../%E8%A7%86%E5%9B%BE%E7%BB%BC%E5%90%88%E5%AE%9E%E8%AE%AD/">
+      
+      
+      <link rel="icon" href="../../../../img/logo.svg">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.14">
+    
+    
+      
+        <title>数据库综合实训——校园门禁数据库系统 - 咸鱼的知识库</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.fad675c6.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/CSS/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="https://docs.xianyu.one" title="咸鱼的知识库" class="md-header__button md-logo" aria-label="咸鱼的知识库" data-md-component="logo">
+      
+  <img src="../../../../img/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            咸鱼的知识库
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              数据库综合实训——校园门禁数据库系统
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../.." class="md-tabs__link">
+        
+  
+    
+  
+  介绍
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../URL/" class="md-tabs__link">
+        
+  
+    
+  
+  ⚙️常用工具合集
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../" class="md-tabs__link">
+          
+  
+  Linux管理员
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE%E7%9F%A5%E8%AF%86/%E7%AE%80%E4%BB%8B/%E7%AE%80%E4%BB%8B/" class="md-tabs__link">
+          
+  
+  网络协议知识
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../Docker/" class="md-tabs__link">
+          
+  
+  🐋Docker
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../desktop/" class="md-tabs__link">
+          
+  
+  🖥️桌面系统
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://docs.xianyu.one" title="咸鱼的知识库" class="md-nav__button md-logo" aria-label="咸鱼的知识库" data-md-component="logo">
+      
+  <img src="../../../../img/logo.svg" alt="logo">
+
+    </a>
+    咸鱼的知识库
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    介绍
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../URL/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ⚙️常用工具合集
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Linux管理员
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Linux管理员
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    简介
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%80%9A%E8%BF%87%E7%B3%BB%E7%BB%9F%E9%95%9C%E5%83%8F%E5%AE%89%E8%A3%85%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    通过系统镜像安装操作系统
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    ssh
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            ssh
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ssh/%E4%BB%80%E4%B9%88%E6%98%AFSSH/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    什么是SSH
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    网络配置
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            网络配置
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/Linux%E4%B8%8B%E7%9A%84%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linux下的网络管理
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/iptables%E9%85%8D%E7%BD%AE%E8%A7%A3%E6%9E%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    iptables配置解析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    包管理
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            包管理
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%8C%85%E7%AE%A1%E7%90%86/CentOS%E4%B8%8B%E7%9A%84%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CentOS下的软件包管理
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    数据库相关
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            数据库相关
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mariadb/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    mariadb
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6_2" id="__nav_3_6_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    储存过程
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            储存过程
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%82%A8%E5%AD%98%E8%BF%87%E7%A8%8B/%E5%82%A8%E5%AD%98%E8%BF%87%E7%A8%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    储存过程
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6_3" id="__nav_3_6_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    更新数据库
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_6_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6_3">
+            <span class="md-nav__icon md-icon"></span>
+            更新数据库
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%9B%B4%E6%96%B0%E6%95%B0%E6%8D%AE%E5%BA%93/%E6%9B%B4%E6%96%B0%E6%95%B0%E6%8D%AE%E5%BA%93/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    更新数据库
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6_4" id="__nav_3_6_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    创建触发器
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_6_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6_4">
+            <span class="md-nav__icon md-icon"></span>
+            创建触发器
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%88%9B%E5%BB%BA%E8%A7%A6%E5%8F%91%E5%99%A8/%E5%88%9B%E5%BB%BA%E8%A7%A6%E5%8F%91%E5%99%A8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    创建触发器
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6_5" id="__nav_3_6_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    查询操作
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_6_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6_5">
+            <span class="md-nav__icon md-icon"></span>
+            查询操作
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%9F%A5%E8%AF%A2%E6%93%8D%E4%BD%9C/%E7%AE%80%E5%8D%95%E6%9F%A5%E8%AF%A2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    简单查询
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%9F%A5%E8%AF%A2%E6%93%8D%E4%BD%9C/%E6%8E%92%E5%BA%8F%E6%9F%A5%E8%AF%A2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    排序查询
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%9F%A5%E8%AF%A2%E6%93%8D%E4%BD%9C/%E5%B5%8C%E5%A5%97%E6%9F%A5%E8%AF%A2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    嵌套查询
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%9F%A5%E8%AF%A2%E6%93%8D%E4%BD%9C/%E5%85%B3%E8%81%94%E6%9F%A5%E8%AF%A2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    关联查询
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6_6" id="__nav_3_6_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    视图操作
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_6_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6_6">
+            <span class="md-nav__icon md-icon"></span>
+            视图操作
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%A7%86%E5%9B%BE%E6%93%8D%E4%BD%9C/%E8%A7%86%E5%9B%BE%E6%93%8D%E4%BD%9C/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    视图操作
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_6_7" id="__nav_3_6_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    综合实训
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_6_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_6_7">
+            <span class="md-nav__icon md-icon"></span>
+            综合实训
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    数据库综合实训——校园门禁数据库系统
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    数据库综合实训——校园门禁数据库系统
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      综合实训题目介绍
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="综合实训题目介绍">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      需求一
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      需求二
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      需求三
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      需求四
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      数据库设计及各表相关信息
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="数据库设计及各表相关信息">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sql" class="md-nav__link">
+    <span class="md-ellipsis">
+      各表SQL文件
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      数据库功能的实现
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="数据库功能的实现">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      学生提交请假申请
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      封装自动计算请假天数
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      判断学生是否有出校资格
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      获取学生最新的请假单信息
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      学生的出入校登记
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="学生的出入校登记">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      出校登记
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      回校登记
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      生成请假单详细信息
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="生成请假单详细信息">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      封装添加到黑/灰名单
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%A7%86%E5%9B%BE%E7%BB%BC%E5%90%88%E5%AE%9E%E8%AE%AD/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    视图综合实训
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    部署服务
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            部署服务
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_7_1" id="__nav_3_7_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Web服务器部署
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_7_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_7_1">
+            <span class="md-nav__icon md-icon"></span>
+            Web服务器部署
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%83%A8%E7%BD%B2%E6%9C%8D%E5%8A%A1/Web%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2/Apache/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Apache
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E9%83%A8%E7%BD%B2%E6%9C%8D%E5%8A%A1/Web%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2/Apache%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Apache相关配置
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_8" id="__nav_3_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    自动化配置
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_8">
+            <span class="md-nav__icon md-icon"></span>
+            自动化配置
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E8%87%AA%E5%8A%A8%E5%8C%96%E9%85%8D%E7%BD%AE/Cron%E6%95%99%E5%AD%A6%E6%96%87%E6%A1%A3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cron教学文档
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_9" id="__nav_3_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    文件共享
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_9">
+            <span class="md-nav__icon md-icon"></span>
+            文件共享
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%96%87%E4%BB%B6%E5%85%B1%E4%BA%AB/NFS%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    NFS共享文件
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    网络协议知识
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            网络协议知识
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    简介
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            简介
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE%E7%9F%A5%E8%AF%86/%E7%AE%80%E4%BB%8B/%E7%AE%80%E4%BB%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    简介
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    物理层协议
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            物理层协议
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE%E7%9F%A5%E8%AF%86/%E7%89%A9%E7%90%86%E5%B1%82%E5%8D%8F%E8%AE%AE/%E5%85%89%E7%BA%A4%E4%BC%A0%E8%BE%93%E4%BB%8B%E8%B4%A8%E4%BB%8B%E7%BB%8D/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    光纤传输介质介绍
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE%E7%9F%A5%E8%AF%86/%E7%89%A9%E7%90%86%E5%B1%82%E5%8D%8F%E8%AE%AE/%E6%A8%A1%E6%8B%9F%E4%BF%A1%E5%8F%B7%E9%87%87%E6%A0%B7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    模拟信号采样
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE%E7%9F%A5%E8%AF%86/%E7%89%A9%E7%90%86%E5%B1%82%E5%8D%8F%E8%AE%AE/%E9%80%9A%E4%BF%A1%E4%BB%8B%E8%B4%A8%E6%B5%8B%E8%AF%95%E6%8C%87%E6%A0%87%E4%BB%8B%E7%BB%8D/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    通信介质测试指标介绍
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE%E7%9F%A5%E8%AF%86/%E7%89%A9%E7%90%86%E5%B1%82%E5%8D%8F%E8%AE%AE/IEEE%20802.1x%E5%8D%8F%E8%AE%AE%E9%80%9F%E6%9F%A5%E8%A1%A8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IEEE 802.1x协议速查表
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE%E7%9F%A5%E8%AF%86/%E7%89%A9%E7%90%86%E5%B1%82%E5%8D%8F%E8%AE%AE/IEEE%20802.3x%E5%8D%8F%E8%AE%AE%E9%80%9F%E6%9F%A5%E8%A1%A8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IEEE 802.3x协议速查表
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE%E7%9F%A5%E8%AF%86/%E7%89%A9%E7%90%86%E5%B1%82%E5%8D%8F%E8%AE%AE/IEEE%20802.11x%E5%8D%8F%E8%AE%AE%E9%80%9F%E6%9F%A5%E8%A1%A8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IEEE 802.11x协议速查表
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE%E7%9F%A5%E8%AF%86/%E7%89%A9%E7%90%86%E5%B1%82%E5%8D%8F%E8%AE%AE/%E7%89%A9%E7%90%86%E5%B1%82%E5%8D%8F%E8%AE%AE%E9%80%9F%E6%9F%A5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    物理层协议速查
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE%E7%9F%A5%E8%AF%86/%E7%89%A9%E7%90%86%E5%B1%82%E5%8D%8F%E8%AE%AE/%E8%9C%82%E7%AA%9D%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE%E9%80%9F%E6%9F%A5%E8%A1%A8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    蜂窝网络协议速查表
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    二层网络协议
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            二层网络协议
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE%E7%9F%A5%E8%AF%86/%E4%BA%8C%E5%B1%82%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/VLAN%E6%8A%80%E6%9C%AF%E4%BB%8B%E7%BB%8D/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VLAN技术介绍
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE%E7%9F%A5%E8%AF%86/%E4%BA%8C%E5%B1%82%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/CSMACD%E6%8A%80%E6%9C%AF%E4%BB%8B%E7%BB%8D/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CSMACD技术介绍
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE%E7%9F%A5%E8%AF%86/%E4%BA%8C%E5%B1%82%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/%E7%AD%89%E5%81%9C%E5%B7%AE%E9%94%99%E6%8E%A7%E5%88%B6%E5%8D%8F%E8%AE%AE%E4%BB%8B%E7%BB%8D/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    等停差错控制协议介绍
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE%E7%9F%A5%E8%AF%86/%E4%BA%8C%E5%B1%82%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/CSMA%E6%8A%80%E6%9C%AF%E4%BB%8B%E7%BB%8D/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CSMA技术介绍
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE%E7%9F%A5%E8%AF%86/%E4%BA%8C%E5%B1%82%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/GVRP%E5%8D%8F%E8%AE%AE%E4%BB%8B%E7%BB%8D/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GVRP协议介绍
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE%E7%9F%A5%E8%AF%86/%E4%BA%8C%E5%B1%82%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/GARP%E5%8D%8F%E8%AE%AE%E4%BB%8B%E7%BB%8D/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GARP协议介绍
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE%E7%9F%A5%E8%AF%86/%E4%BA%8C%E5%B1%82%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/STP%E6%8A%80%E6%9C%AF%E4%BB%8B%E7%BB%8D/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    STP技术介绍
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE%E7%9F%A5%E8%AF%86/%E4%BA%8C%E5%B1%82%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/MSTP%E4%BB%8B%E7%BB%8D/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MSTP介绍
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    三层路由协议
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            三层路由协议
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4_1" id="__nav_4_4_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    链路状态路由协议（Link State Routing Protocol）
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            链路状态路由协议（Link State Routing Protocol）
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE%E7%9F%A5%E8%AF%86/%E4%B8%89%E5%B1%82%E8%B7%AF%E7%94%B1%E5%8D%8F%E8%AE%AE/%E9%93%BE%E8%B7%AF%E7%8A%B6%E6%80%81%E8%B7%AF%E7%94%B1%E5%8D%8F%E8%AE%AE%EF%BC%88Link%20State%20Routing%20Protocol%EF%BC%89/IS-IS%E5%8D%8F%E8%AE%AE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IS-IS协议
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4_2" id="__nav_4_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    内部网关协议（IGP）
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            内部网关协议（IGP）
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE%E7%9F%A5%E8%AF%86/%E4%B8%89%E5%B1%82%E8%B7%AF%E7%94%B1%E5%8D%8F%E8%AE%AE/%E5%86%85%E9%83%A8%E7%BD%91%E5%85%B3%E5%8D%8F%E8%AE%AE%EF%BC%88IGP%EF%BC%89/RIP%E5%8D%8F%E8%AE%AE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RIP协议
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE%E7%9F%A5%E8%AF%86/%E4%B8%89%E5%B1%82%E8%B7%AF%E7%94%B1%E5%8D%8F%E8%AE%AE/%E5%86%85%E9%83%A8%E7%BD%91%E5%85%B3%E5%8D%8F%E8%AE%AE%EF%BC%88IGP%EF%BC%89/OSFP%E5%8D%8F%E8%AE%AE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OSFP协议
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4_3" id="__nav_4_4_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    外部网关协议（EGP）
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            外部网关协议（EGP）
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE%E7%9F%A5%E8%AF%86/%E4%B8%89%E5%B1%82%E8%B7%AF%E7%94%B1%E5%8D%8F%E8%AE%AE/%E5%A4%96%E9%83%A8%E7%BD%91%E5%85%B3%E5%8D%8F%E8%AE%AE%EF%BC%88EGP%EF%BC%89/BGP%E5%8D%8F%E8%AE%AE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BGP协议
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    无线网络相关
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            无线网络相关
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE%E7%9F%A5%E8%AF%86/%E6%97%A0%E7%BA%BF%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3/%E6%97%A0%E7%BA%BF%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%8D%8F%E8%AE%AE%E4%BB%8B%E7%BB%8D/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    无线网络安全协议介绍
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    广域网技术
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            广域网技术
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE%E7%9F%A5%E8%AF%86/%E5%B9%BF%E5%9F%9F%E7%BD%91%E6%8A%80%E6%9C%AF/ADSL%E6%8A%80%E6%9C%AF%E4%BB%8B%E7%BB%8D/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ADSL技术介绍
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE%E7%9F%A5%E8%AF%86/%E5%B9%BF%E5%9F%9F%E7%BD%91%E6%8A%80%E6%9C%AF/HDLC%E6%8A%80%E6%9C%AF%E4%BB%8B%E7%BB%8D/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HDLC技术介绍
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE%E7%9F%A5%E8%AF%86/%E5%B9%BF%E5%9F%9F%E7%BD%91%E6%8A%80%E6%9C%AF/PPP%E5%8D%8F%E8%AE%AE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PPP协议
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE%E7%9F%A5%E8%AF%86/%E5%B9%BF%E5%9F%9F%E7%BD%91%E6%8A%80%E6%9C%AF/HFC%E7%BD%91%E7%BB%9C%E4%BB%8B%E7%BB%8D/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HFC网络介绍
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE%E7%9F%A5%E8%AF%86/%E5%B9%BF%E5%9F%9F%E7%BD%91%E6%8A%80%E6%9C%AF/%E5%88%86%E7%BB%84%E4%BA%A4%E6%8D%A2%E7%BD%91%E7%BB%9C%E6%8A%80%E6%9C%AF%E4%BB%8B%E7%BB%8D/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    分组交换网络技术介绍
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE%E7%9F%A5%E8%AF%86/%E5%B9%BF%E5%9F%9F%E7%BD%91%E6%8A%80%E6%9C%AF/%E5%B9%BF%E5%9F%9F%E7%BD%91%E6%8E%A5%E5%85%A5%E6%8A%80%E6%9C%AF%E4%BB%8B%E7%BB%8D/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    广域网接入技术介绍
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE%E7%9F%A5%E8%AF%86/%E5%B9%BF%E5%9F%9F%E7%BD%91%E6%8A%80%E6%9C%AF/SDH%20SONET%E6%8A%80%E6%9C%AF%E4%BB%8B%E7%BB%8D/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SDH SONET技术介绍
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    编码与调制
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7">
+            <span class="md-nav__icon md-icon"></span>
+            编码与调制
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE%E7%9F%A5%E8%AF%86/%E7%BC%96%E7%A0%81%E4%B8%8E%E8%B0%83%E5%88%B6/%E6%B5%B7%E6%98%8E%E7%A0%81%EF%BC%88Hamming%20Code%EF%BC%89%E4%BB%8B%E7%BB%8D/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    海明码（Hamming Code）介绍
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE%E7%9F%A5%E8%AF%86/%E7%BC%96%E7%A0%81%E4%B8%8E%E8%B0%83%E5%88%B6/%E7%BC%96%E7%A0%81%E6%96%B9%E5%BC%8F%E9%80%9F%E6%9F%A5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    编码方式速查
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE%E7%9F%A5%E8%AF%86/%E7%BC%96%E7%A0%81%E4%B8%8E%E8%B0%83%E5%88%B6/%E6%A0%A1%E9%AA%8C%E6%8A%80%E6%9C%AF/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    校验技术
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_8" id="__nav_4_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    通信系统概述
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8">
+            <span class="md-nav__icon md-icon"></span>
+            通信系统概述
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE%E7%9F%A5%E8%AF%86/%E9%80%9A%E4%BF%A1%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0/%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数据通信方式
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE%E7%9F%A5%E8%AF%86/%E9%80%9A%E4%BF%A1%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0/%E7%BD%91%E7%BB%9C%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    网络体系结构模型
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE%E7%9F%A5%E8%AF%86/%E9%80%9A%E4%BF%A1%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0/%E4%BB%A5%E5%A4%AA%E7%BD%91%E5%B8%A7%E7%AE%80%E4%BB%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    以太网帧简介
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE%E7%9F%A5%E8%AF%86/%E9%80%9A%E4%BF%A1%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0/%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    多路复用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_9" id="__nav_4_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    IPv6
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_9">
+            <span class="md-nav__icon md-icon"></span>
+            IPv6
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE%E7%9F%A5%E8%AF%86/IPv6/IPv6%E6%95%B0%E6%8D%AE%E5%8C%85/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IPv6数据包
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    🐋Docker
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            🐋Docker
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Docker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    简介
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Docker/%E5%AE%89%E8%A3%85Docker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    安装Docker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Docker/%E5%AE%89%E8%A3%85Docker%20Compose/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    安装Docker Compose
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Docker/Docker%20Compose%20%E8%A7%A3%E9%87%8A%E6%96%87%E6%A1%A3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Docker Compose 解释文档
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Docker/Dockerfile%20%E8%A7%A3%E9%87%8A%E6%96%87%E6%A1%A3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dockerfile 解释文档
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Docker/Docker%E5%8F%82%E6%95%B0%E8%AF%A6%E8%A7%A3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Docker参数详解
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    🖥️桌面系统
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            🖥️桌面系统
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../desktop/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    简介
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    navicat安装
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            navicat安装
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../desktop/dev/navicat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    简介
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../desktop/dev/navicat/make/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    前置准备（编译安装软件）
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../desktop/dev/navicat/use/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    激活产品
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    vscode安装和使用
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_3">
+            <span class="md-nav__icon md-icon"></span>
+            vscode安装和使用
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../desktop/dev/vscode/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    安装和使用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      综合实训题目介绍
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="综合实训题目介绍">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      需求一
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      需求二
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      需求三
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      需求四
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      数据库设计及各表相关信息
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="数据库设计及各表相关信息">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sql" class="md-nav__link">
+    <span class="md-ellipsis">
+      各表SQL文件
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      数据库功能的实现
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="数据库功能的实现">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      学生提交请假申请
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      封装自动计算请假天数
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      判断学生是否有出校资格
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      获取学生最新的请假单信息
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      学生的出入校登记
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="学生的出入校登记">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      出校登记
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      回校登记
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      生成请假单详细信息
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="生成请假单详细信息">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      封装添加到黑/灰名单
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="_1">数据库综合实训——校园门禁数据库系统</h1>
+<h2 id="_2">综合实训题目介绍</h2>
+<p>由于“新冠疫情”原因，学校处于一个半封闭管理的状态，学生请假出校成了学校现阶段学生管理工作中比较繁重的一项工作。先计划开发一个智能门禁系统的功能，请根据需求设计对应的数据库。</p>
+<h3 id="_3">需求一</h3>
+<p>系统集中统一进行学生和教职工信息管理，包含识别所必须的人员（二维码身份信息Java等实现）面部照片，以及学生和教职工相关的姓名、照片、职位、性别等信息，系统可将每名人员进行分区域授权管理通行。</p>
+<p><strong>学生（学号、姓名、年龄、所在系、班级、班主任的教师号）</strong></p>
+<p><strong>教师（教师号、姓名、年龄、所在系、所管理的班级）</strong></p>
+<h3 id="_4">需求二</h3>
+<p>学生如果有事需要出校需要向班主任请假，班主任审批后方可出校。班主任通过审批后生成一个请假详情报告，包括：（请假编号、学生姓名、班级、请假开始时间、请假结束时间、请假事由、请假总天数、班主任）。</p>
+<p><strong>请假单（请假编号、学号、请假开始时间、请假结束时间、请假事由、请假总天数、实际出校时间、实际回校时间、请假单状态）</strong></p>
+<h3 id="_5">需求三</h3>
+<p>学生在校门口出校时，进行二维码识别(人脸识别)是否有权限出校（查询请假单是否存在），请假单存在，在对应的记录中登记出校时间，并对该请假记录标记为“已出校”。学生回校进行登记进校时间，并对该请假记录标记为“已回校”。系统中需要保留历史请假数据。</p>
+<h3 id="_6">需求四</h3>
+<p>学生回校进行扫码登记进校时间，如果进校时间晚于请假结束时间，超过时间在半小时以内，一周不准请假出校，将学生信息记录于《灰名单》；超过时间在半小时以外，两周不准请假出校，将学生信息记录于《黑名单》。这里是一个表，两种不同的状态。</p>
+<p><strong>灰黑名单（学号、状态、加入时间）</strong></p>
+<h2 id="_7">数据库设计及各表相关信息</h2>
+<p>基本的师生信息需要三张表进行储存，分别是学生信息表（<code>persons_student</code>）、教师信息表（<code>persons_teacher</code>）、班级信息表（<code>admin_class_infoc</code>）。通过这三张表进行关联即可。</p>
+<p><img alt="" src="../img/mysql.svg" />
+请假单的部分通过新增一张请假单主表（<code>leave_form</code>）、审批状态表（<code>application_status</code>）以及黑、灰名单表（<code>ban_list</code>）来实现，数据库ER图见上图</p>
+<h3 id="sql">各表SQL文件</h3>
+<p>数据库仅包含结构的SQL已导出在主文件夹下的<code>结构sql文件</code>文件夹中</p>
+<h2 id="_8">数据库功能的实现</h2>
+<h3 id="_9">学生提交请假申请</h3>
+<p>学生提交请假申请时需要的字段为：学生学号（<code>STUDENT_ID</code>）、请假开始时间（<code>START_DATE</code>）、请假结束时间（<code>END_DATE</code>）、请假事由（<code>REASON</code>）以上信息将使用下方的储存过程传递进数据库</p>
+<div class="language-mysql highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">delimiter</span><span class="w"> </span><span class="n">$$</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">PROCEDURE</span><span class="w"> </span><span class="n">student_input_data</span><span class="p">(</span><span class="k">IN</span><span class="w"> </span><span class="n">INPUT_STUDENT_ID</span><span class="w"> </span><span class="kt">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span><span class="k">IN</span><span class="w"> </span><span class="n">INPUT_START_DATE</span><span class="w"> </span><span class="kt">DATETIME</span><span class="p">,</span><span class="k">IN</span><span class="w"> </span><span class="n">INPUT_END_DATE</span><span class="w"> </span><span class="kt">DATETIME</span><span class="p">,</span><span class="k">IN</span><span class="w"> </span><span class="n">INPUT_REASON</span><span class="w"> </span><span class="kt">TEXT</span><span class="p">)</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">BEGIN</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">leave_form</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="p">(</span><span class="n">STUDENT_ID</span><span class="p">,</span><span class="n">START_DATE</span><span class="p">,</span><span class="n">END_DATE</span><span class="p">,</span><span class="n">REASON</span><span class="p">)</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="k">VALUES</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="p">(</span><span class="n">INPUT_STUDENT_ID</span><span class="p">,</span><span class="n">INPUT_START_DATE</span><span class="p">,</span><span class="n">INPUT_END_DATE</span><span class="p">,</span><span class="n">INPUT_REASON</span><span class="p">);</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="k">END</span><span class="w"> </span><span class="n">$$</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="n">delimiter</span><span class="p">;</span>
+</span></code></pre></div>
+<p>由于题中要求：</p>
+<blockquote>
+<p>学生回校进行扫码登记进校时间，如果进校时间晚于请假结束时间，超过时间在半小时以内，一周不准请假出校，将学生信息记录于《灰名单》；超过时间在半小时以外，两周不准请假出校，将学生信息记录于《黑名单》。这里是一个表，两种不同的状态。 </p>
+</blockquote>
+<p>在本数据库的设计中，判断学生是否位于黑/灰名单的逻辑是：
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>如果
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    学生学号不在黑/灰名单中 则：
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>        直接执行传入数据（调用`student_input_data`）
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>如果
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    学生学号在黑/灰名单中 则：
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>        查询黑/灰名单状态：
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>            如果
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>                学生在灰名单中但已过惩罚期（即7天） 则：
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>                    删除此学生在灰名单中的记录
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>                    将数据传入数据库（调用`student_input_data`）
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>                否则：
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>                    输出提示信息：`你在灰名单中，无法提交申请！`
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>            如果
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>                学生在黑名单中但已过惩罚期（即14天）则：
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>                    删除此学生在黑名单中的记录
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>                    将数据传入数据库 （调用`student_input_data`）
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>                否则：
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>                    输出提示信息：`你在黑名单中，无法提交申请！`  
+</span></code></pre></div></p>
+<p>即封装为下面的存储过程
+<div class="language-mysql highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">delimiter</span><span class="w"> </span><span class="n">$$</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">PROCEDURE</span><span class="w"> </span><span class="n">application_input_data</span><span class="p">(</span><span class="k">IN</span><span class="w"> </span><span class="n">INPUT_STUDENT_ID</span><span class="w"> </span><span class="kt">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span><span class="k">IN</span><span class="w"> </span><span class="n">INPUT_START_DATE</span><span class="w"> </span><span class="kt">DATETIME</span><span class="p">,</span><span class="k">IN</span><span class="w"> </span><span class="n">INPUT_END_DATE</span><span class="w"> </span><span class="kt">DATETIME</span><span class="p">,</span><span class="k">IN</span><span class="w"> </span><span class="n">INPUT_REASON</span><span class="w"> </span><span class="kt">TEXT</span><span class="p">)</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="k">BEGIN</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="k">IF</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="n">BAN_STUDENT_ID</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">ban_list</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">BAN_STUDENT_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">INPUT_STUDENT_ID</span><span class="p">)</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="no">NULL</span><span class="w"> </span><span class="k">THEN</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">        </span><span class="k">CALL</span><span class="w"> </span><span class="n">student_input_data</span><span class="p">(</span><span class="n">INPUT_STUDENT_ID</span><span class="p">,</span><span class="n">INPUT_START_DATE</span><span class="p">,</span><span class="n">INPUT_END_DATE</span><span class="p">,</span><span class="n">INPUT_REASON</span><span class="p">);</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="k">ELSE</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">        </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="n">BAN_STATUS</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">ban_list</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">BAN_STUDENT_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">INPUT_STUDENT_ID</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;2&#39;</span><span class="w"> </span><span class="k">THEN</span><span class="w">  </span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="nf">NOW</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nf">DATE_ADD</span><span class="p">((</span><span class="k">SELECT</span><span class="w"> </span><span class="n">ADD_TIME</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">ban_list</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">BAN_STUDENT_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">INPUT_STUDENT_ID</span><span class="p">),</span><span class="k">INTERVAL</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="k">DAY</span><span class="p">))</span><span class="w"> </span><span class="k">THEN</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">                </span><span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">ban_list</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">BAN_STUDENT_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">INPUT_STUDENT_ID</span><span class="p">;</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">                </span><span class="k">CALL</span><span class="w"> </span><span class="n">student_input_data</span><span class="p">(</span><span class="n">INPUT_STUDENT_ID</span><span class="p">,</span><span class="n">INPUT_START_DATE</span><span class="p">,</span><span class="n">INPUT_END_DATE</span><span class="p">,</span><span class="n">INPUT_REASON</span><span class="p">);</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">            </span><span class="k">ELSE</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">                </span><span class="k">SIGNAL</span><span class="w"> </span><span class="k">SQLSTATE</span><span class="w"> </span><span class="s1">&#39;22012&#39;</span><span class="w"> </span><span class="k">SET</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">                    </span><span class="k">MESSAGE_TEXT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;你在灰名单中，无法提交申请！&#39;</span><span class="p">;</span>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">            </span><span class="k">END</span><span class="w"> </span><span class="k">IF</span><span class="p">;</span>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">        </span><span class="k">ELSE</span>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="nf">NOW</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nf">DATE_ADD</span><span class="p">((</span><span class="k">SELECT</span><span class="w"> </span><span class="n">ADD_TIME</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">ban_list</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">BAN_STUDENT_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">INPUT_STUDENT_ID</span><span class="p">),</span><span class="k">INTERVAL</span><span class="w"> </span><span class="mi">14</span><span class="w"> </span><span class="k">DAY</span><span class="p">))</span><span class="w"> </span><span class="k">THEN</span>
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">                </span><span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">ban_list</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">BAN_STUDENT_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">INPUT_STUDENT_ID</span><span class="p">;</span>
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="w">                </span><span class="k">CALL</span><span class="w"> </span><span class="n">student_input_data</span><span class="p">(</span><span class="n">INPUT_STUDENT_ID</span><span class="p">,</span><span class="n">INPUT_START_DATE</span><span class="p">,</span><span class="n">INPUT_END_DATE</span><span class="p">,</span><span class="n">INPUT_REASON</span><span class="p">);</span>
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">            </span><span class="k">ELSE</span>
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">                </span><span class="k">SIGNAL</span><span class="w"> </span><span class="k">SQLSTATE</span><span class="w"> </span><span class="s1">&#39;22013&#39;</span><span class="w"> </span><span class="k">SET</span>
+</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="w">                    </span><span class="k">MESSAGE_TEXT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;你在黑名单中，无法提交申请！&#39;</span><span class="p">;</span>
+</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="w">            </span><span class="k">END</span><span class="w"> </span><span class="k">IF</span><span class="p">;</span>
+</span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="w">        </span><span class="k">END</span><span class="w"> </span><span class="k">IF</span><span class="p">;</span>
+</span><span id="__span-2-26"><a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a><span class="k">END</span><span class="w"> </span><span class="k">IF</span><span class="p">;</span>
+</span><span id="__span-2-27"><a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a>
+</span><span id="__span-2-28"><a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a><span class="k">END</span><span class="w"> </span><span class="n">$$</span>
+</span><span id="__span-2-29"><a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a><span class="n">delimiter</span><span class="p">;</span>
+</span></code></pre></div></p>
+<h3 id="_10">封装自动计算请假天数</h3>
+<p>由于要求存储学生请假天数信息，所以可以使用<code>DATEDIFF</code>函数，使用请假开始的时间和结束的时间计算出学生请假的数据并传入数据库。此处使用两个触发器实现此项数据填写的自动化。</p>
+<div class="language-mysql highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">DELIMITER</span><span class="w"> </span><span class="n">$$</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TRIGGER</span><span class="w"> </span><span class="n">number_of_days_when_create</span><span class="w"> </span><span class="k">AFTER</span><span class="w"> </span><span class="k">INSERT</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">leave_form</span><span class="w"> </span><span class="k">FOR</span><span class="w"> </span><span class="k">EACH</span><span class="w"> </span><span class="k">ROW</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="k">BEGIN</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="k">UPDATE</span><span class="w"> </span><span class="n">leave_form</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">LEAVE_DAY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nf">DATEDIFF</span><span class="p">(</span><span class="k">new</span><span class="p">.</span><span class="n">END_DATE</span><span class="p">,</span><span class="k">new</span><span class="p">.</span><span class="n">START_DATE</span><span class="p">));</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="k">END</span><span class="w"> </span><span class="n">$$</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="n">DELIMITER</span><span class="p">;</span>
+</span></code></pre></div>
+<div class="language-mysql highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">DELIMITER</span><span class="w"> </span><span class="n">$$</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TRIGGER</span><span class="w"> </span><span class="n">number_of_days_when_update</span><span class="w"> </span><span class="k">AFTER</span><span class="w"> </span><span class="k">UPDATE</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">leave_form</span><span class="w"> </span><span class="k">FOR</span><span class="w"> </span><span class="k">EACH</span><span class="w"> </span><span class="k">ROW</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="k">BEGIN</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="k">UPDATE</span><span class="w"> </span><span class="n">leave_form</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">LEAVE_DAY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nf">DATEDIFF</span><span class="p">(</span><span class="k">new</span><span class="p">.</span><span class="n">END_DATE</span><span class="p">,</span><span class="k">new</span><span class="p">.</span><span class="n">START_DATE</span><span class="p">));</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="k">END</span><span class="w"> </span><span class="n">$$</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="n">DELIMITER</span><span class="p">;</span>
+</span></code></pre></div>
+<h3 id="_11">判断学生是否有出校资格</h3>
+<p>在学生提交申请后，审核状态（<code>APPLICATION_STATUS</code>）将自动赋值为<code>2</code>即处于“等待审批”的状态，在此状态下或值为<code>0</code>（即处于“审批不通过”的状态）时学生不可以出校，只有当审核状态处于<code>1</code>即处于“审批通过”的状态时才可出校，由此可以封装为下面的存储过程：</p>
+<div class="language-mysql highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">delimiter</span><span class="w"> </span><span class="n">$$</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">PROCEDURE</span><span class="w"> </span><span class="n">judgment_leave_form_status</span><span class="p">(</span><span class="k">IN</span><span class="w"> </span><span class="n">INPUT_STUDENT_ID</span><span class="w"> </span><span class="kt">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span><span class="k">OUT</span><span class="w"> </span><span class="n">OUTPUT_INFO</span><span class="w"> </span><span class="kt">TINYINT</span><span class="p">)</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="k">BEGIN</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">IF</span><span class="p">(</span><span class="n">STUDENT_ID</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="no">NULL</span><span class="p">,</span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="s1">&#39;0&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">OUTPUT_INFO</span><span class="w"> </span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">leave_form</span><span class="w"> </span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="k">WHERE</span><span class="w"> </span><span class="n">STUDENT_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">INPUT_STUDENT_ID</span><span class="w"> </span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">        </span><span class="k">AND</span><span class="w"> </span><span class="n">leave_form</span><span class="p">.</span><span class="n">LEAVE_FORM_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="nf">MAX</span><span class="p">(</span><span class="n">LEAVE_FORM_ID</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">leave_form</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">STUDENT_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">INPUT_STUDENT_ID</span><span class="p">)</span><span class="w"> </span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">        </span><span class="k">AND</span><span class="w"> </span><span class="n">leave_form</span><span class="p">.</span><span class="n">APPLICATION_STATUS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;1&#39;</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">        </span><span class="k">AND</span><span class="w"> </span><span class="nf">NOW</span><span class="p">()</span><span class="w"> </span><span class="k">BETWEEN</span><span class="w"> </span><span class="n">START_DATE</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">END_DATE</span><span class="p">;</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="k">END</span><span class="w"> </span><span class="n">$$</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="n">delimiter</span><span class="p">;</span>
+</span></code></pre></div>
+<h3 id="_12">获取学生最新的请假单信息</h3>
+<p>由于系统要求储存历史请假信息，所以一个学生可能会有多个请假单，此时我们需要获取最新请假单的ID作为变量来限制后续出入校登记时间时所修改的请假单。如果不获取使用最新请假单ID，仅通过学生学号来限制修改条件的话<strong>将会同时修改此学生历史上所提交并通过审批的所有记录</strong>。
+由此，将查询学生最新请假单信息的存储过程封装为：</p>
+<div class="language-mysql highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">delimiter</span><span class="w"> </span><span class="n">$$</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">PROCEDURE</span><span class="w"> </span><span class="n">get_latest_form</span><span class="p">(</span><span class="k">IN</span><span class="w"> </span><span class="n">INPUT_STUDENT_ID</span><span class="w"> </span><span class="kt">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span><span class="k">OUT</span><span class="w"> </span><span class="n">OUT_ID</span><span class="w"> </span><span class="kt">INT</span><span class="p">)</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="k">BEGIN</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">LEAVE_FORM_ID</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">OUT_ID</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">leave_form</span><span class="w"> </span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="k">WHERE</span><span class="w"> </span><span class="n">STUDENT_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">INPUT_STUDENT_ID</span><span class="w"> </span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">        </span><span class="k">AND</span><span class="w"> </span><span class="n">leave_form</span><span class="p">.</span><span class="n">LEAVE_FORM_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="nf">MAX</span><span class="p">(</span><span class="n">LEAVE_FORM_ID</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">leave_form</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">STUDENT_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">INPUT_STUDENT_ID</span><span class="p">);</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="k">END</span><span class="w"> </span><span class="n">$$</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="n">delimiter</span><span class="p">;</span>
+</span></code></pre></div>
+<p><strong>注意：由于此判断逻辑，假设学生有两个分别是今天和下周的请假，那么此存储过程将仅会返回下周的请假单信息，导致学生今天的请假无法打卡，无法出校门！</strong></p>
+<p>由于时间关系，此处不再进一步优化判断逻辑。</p>
+<h3 id="_13">学生的出入校登记</h3>
+<p>出入校登记的基本逻辑相同，通过调用并查询最新的请假单是否已审批通过来判断学生的出入校的合法性，并登记</p>
+<h4 id="_14">出校登记</h4>
+<div class="language-mysql highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">delimiter</span><span class="w"> </span><span class="n">$$</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">PROCEDURE</span><span class="w"> </span><span class="n">out_of_school_registration</span><span class="p">(</span><span class="k">IN</span><span class="w"> </span><span class="n">INPUT_STUDENT_ID</span><span class="w"> </span><span class="kt">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">))</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="k">BEGIN</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="k">CALL</span><span class="w"> </span><span class="n">judgment_leave_form_status</span><span class="p">(</span><span class="n">INPUT_STUDENT_ID</span><span class="p">,</span><span class="nv">@form_status</span><span class="p">);</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="k">CALL</span><span class="w"> </span><span class="n">get_latest_form</span><span class="p">(</span><span class="n">INPUT_STUDENT_ID</span><span class="p">,</span><span class="nv">@get_form_id</span><span class="p">);</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="k">UPDATE</span><span class="w"> </span><span class="n">leave_form</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">LEAVE_START_DATE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">NOW</span><span class="p">()</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">LEAVE_FORM_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">@get_form_id</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">STUDENT_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">INPUT_STUDENT_ID</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="nv">@form_status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="k">END</span><span class="w"> </span><span class="n">$$</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="n">delimiter</span><span class="p">;</span>
+</span></code></pre></div>
+<h4 id="_15">回校登记</h4>
+<div class="language-mysql highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">delimiter</span><span class="w"> </span><span class="n">$$</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">PROCEDURE</span><span class="w"> </span><span class="n">enter_school_registration</span><span class="p">(</span><span class="k">IN</span><span class="w"> </span><span class="n">INPUT_STUDENT_ID</span><span class="w"> </span><span class="kt">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">))</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="k">BEGIN</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="k">CALL</span><span class="w"> </span><span class="n">get_latest_form</span><span class="p">(</span><span class="n">INPUT_STUDENT_ID</span><span class="p">,</span><span class="nv">@form_id</span><span class="p">);</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="k">CALL</span><span class="w"> </span><span class="n">get_latest_form</span><span class="p">(</span><span class="n">INPUT_STUDENT_ID</span><span class="p">,</span><span class="nv">@get_form_id</span><span class="p">);</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="k">UPDATE</span><span class="w"> </span><span class="n">leave_form</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">LEAVE_END_DATE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">NOW</span><span class="p">()</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">STUDENT_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">INPUT_STUDENT_ID</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">LEAVE_FORM_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">@form_id</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="nv">@form_status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="k">END</span><span class="w"> </span><span class="n">$$</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="n">delimiter</span><span class="p">;</span>
+</span></code></pre></div>
+<h2 id="_16">生成请假单详细信息</h2>
+<p>通过视图来生成相对适合人类阅读的表单信息</p>
+<div class="language-mysql highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">VIEW</span><span class="w"> </span><span class="n">leave_form_info</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">leave_form</span><span class="p">.</span><span class="n">LEAVE_FORM_ID</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n n-Quoted">`请假编号`</span><span class="p">,</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span><span class="n">persons_student</span><span class="p">.</span><span class="n n-Quoted">`NAME`</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n n-Quoted">`学生姓名`</span><span class="p">,</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="n">admin_class_infoc</span><span class="p">.</span><span class="n">CLASS_TITLE</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n n-Quoted">`班级`</span><span class="p">,</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span><span class="n">leave_form</span><span class="p">.</span><span class="n">START_DATE</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n n-Quoted">`请假开始时间`</span><span class="p">,</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">    </span><span class="n">leave_form</span><span class="p">.</span><span class="n">END_DATE</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n n-Quoted">`请假结束时间`</span><span class="p">,</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">    </span><span class="n">leave_form</span><span class="p">.</span><span class="n">REASON</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n n-Quoted">`请假事由`</span><span class="p">,</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">    </span><span class="n">leave_form</span><span class="p">.</span><span class="n">LEAVE_DAY</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n n-Quoted">`请假总天数`</span><span class="p">,</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">    </span><span class="n">persons_teacher</span><span class="p">.</span><span class="n n-Quoted">`NAME`</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n n-Quoted">`班主任`</span><span class="p">,</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">    </span><span class="n">application_status</span><span class="p">.</span><span class="n">APPLICATION_TITLE</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n n-Quoted">`审批状态`</span><span class="p">,</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">    </span><span class="n">leave_form</span><span class="p">.</span><span class="n">LEAVE_START_DATE</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n n-Quoted">`实际出校时间`</span><span class="p">,</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">    </span><span class="n">leave_form</span><span class="p">.</span><span class="n">LEAVE_END_DATE</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n n-Quoted">`实际回校时间`</span><span class="p">,</span>
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="w">    </span><span class="n">leave_form</span><span class="p">.</span><span class="n">TEACHER_NOTES</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n n-Quoted">`教师审批备注`</span><span class="p">,</span>
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="w">    </span><span class="p">(</span><span class="k">CASE</span>
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="n">leave_form</span><span class="p">.</span><span class="n">APPLICATION_STATUS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;1&#39;</span><span class="w"> </span><span class="k">THEN</span>
+</span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="w">            </span><span class="p">(</span><span class="k">CASE</span>
+</span><span id="__span-9-16"><a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="w">                </span><span class="k">WHEN</span><span class="w"> </span><span class="n">leave_form</span><span class="p">.</span><span class="n">LEAVE_START_DATE</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="no">NULL</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">&#39;未出校&#39;</span>
+</span><span id="__span-9-17"><a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="w">                </span><span class="k">WHEN</span><span class="w"> </span><span class="n">leave_form</span><span class="p">.</span><span class="n">LEAVE_START_DATE</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="no">NULL</span><span class="w"> </span><span class="k">THEN</span>
+</span><span id="__span-9-18"><a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a><span class="w">                    </span><span class="p">(</span><span class="k">CASE</span>
+</span><span id="__span-9-19"><a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a><span class="w">                        </span><span class="k">WHEN</span><span class="w"> </span><span class="n">leave_form</span><span class="p">.</span><span class="n">LEAVE_END_DATE</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="no">NULL</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">&#39;已出校&#39;</span>
+</span><span id="__span-9-20"><a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a><span class="w">                        </span><span class="k">ELSE</span><span class="w"> </span><span class="s1">&#39;已回校&#39;</span>
+</span><span id="__span-9-21"><a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a><span class="w">                    </span><span class="k">END</span>
+</span><span id="__span-9-22"><a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a><span class="w">                    </span><span class="p">)</span>
+</span><span id="__span-9-23"><a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a><span class="w">            </span><span class="k">END</span>
+</span><span id="__span-9-24"><a id="__codelineno-9-24" name="__codelineno-9-24" href="#__codelineno-9-24"></a><span class="w">            </span><span class="p">)</span>
+</span><span id="__span-9-25"><a id="__codelineno-9-25" name="__codelineno-9-25" href="#__codelineno-9-25"></a><span class="w">        </span><span class="k">ELSE</span><span class="w"> </span><span class="s1">&#39;审批状态不为通过&#39;</span>
+</span><span id="__span-9-26"><a id="__codelineno-9-26" name="__codelineno-9-26" href="#__codelineno-9-26"></a><span class="w">        </span><span class="k">END</span>
+</span><span id="__span-9-27"><a id="__codelineno-9-27" name="__codelineno-9-27" href="#__codelineno-9-27"></a><span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n n-Quoted">`学生请假状态`</span>
+</span><span id="__span-9-28"><a id="__codelineno-9-28" name="__codelineno-9-28" href="#__codelineno-9-28"></a><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">leave_form</span>
+</span><span id="__span-9-29"><a id="__codelineno-9-29" name="__codelineno-9-29" href="#__codelineno-9-29"></a><span class="w"> </span><span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">persons_student</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">persons_student</span><span class="p">.</span><span class="n">STUDENT_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">leave_form</span><span class="p">.</span><span class="n">STUDENT_ID</span>
+</span><span id="__span-9-30"><a id="__codelineno-9-30" name="__codelineno-9-30" href="#__codelineno-9-30"></a><span class="w"> </span><span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">admin_class_infoc</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">persons_student</span><span class="p">.</span><span class="n">ADMIN_CLASS_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">admin_class_infoc</span><span class="p">.</span><span class="n">CLASS_ID</span>
+</span><span id="__span-9-31"><a id="__codelineno-9-31" name="__codelineno-9-31" href="#__codelineno-9-31"></a><span class="w"> </span><span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">persons_teacher</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">persons_teacher</span><span class="p">.</span><span class="n">TEACHER_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">admin_class_infoc</span><span class="p">.</span><span class="n">TEACHER_ID</span>
+</span><span id="__span-9-32"><a id="__codelineno-9-32" name="__codelineno-9-32" href="#__codelineno-9-32"></a><span class="w"> </span><span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">application_status</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">application_status</span><span class="p">.</span><span class="n">APPLICATION_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">leave_form</span><span class="p">.</span><span class="n">APPLICATION_STATUS</span>
+</span></code></pre></div>
+<h3 id="_17">封装添加到黑/灰名单</h3>
+<p>下方储存过程用于将违规学生添加到黑/灰名单</p>
+<div class="language-mysql highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">delimiter</span><span class="w"> </span><span class="n">$$</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">PROCEDURE</span><span class="w"> </span><span class="n">add_to_ban_list</span><span class="p">(</span><span class="k">IN</span><span class="w"> </span><span class="n">INPUT_STUDENT_ID</span><span class="w"> </span><span class="kt">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span><span class="k">IN</span><span class="w"> </span><span class="n">INPUT_BAN_STATUS</span><span class="w"> </span><span class="kt">TINYINT</span><span class="p">)</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="k">BEGIN</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">ban_list</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="p">(</span><span class="n">BAN_STUDENT_ID</span><span class="p">,</span><span class="n">BAN_STATUS</span><span class="p">,</span><span class="n">ADD_TIME</span><span class="p">)</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="k">VALUES</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="p">(</span><span class="n">INPUT_STUDENT_ID</span><span class="p">,</span><span class="n">INPUT_BAN_STATUS</span><span class="p">,</span><span class="nf">NOW</span><span class="p">());</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="k">END</span><span class="w"> </span><span class="n">$$</span>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="n">delimiter</span><span class="p">;</span>
+</span></code></pre></div>
+<p>下方的触发器在学生回校登记时自动判断是否违规并将违规学生记录进黑/灰名单</p>
+<div class="language-mysql highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">DELIMITER</span><span class="w"> </span><span class="n">$$</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TRIGGER</span><span class="w"> </span><span class="n">add_to_ban_list_trigger</span><span class="w"> </span><span class="k">AFTER</span><span class="w"> </span><span class="k">UPDATE</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">leave_form</span><span class="w"> </span><span class="k">FOR</span><span class="w"> </span><span class="k">EACH</span><span class="w"> </span><span class="k">ROW</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="k">BEGIN</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="k">IF</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="w">    </span><span class="p">(</span><span class="nf">NOW</span><span class="p">()</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">BETWEEN</span><span class="w"> </span><span class="k">new</span><span class="p">.</span><span class="n">START_DATE</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="k">new</span><span class="p">.</span><span class="n">END_DATE</span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="w">    </span><span class="k">IF</span>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="w">        </span><span class="p">(</span><span class="nf">NOW</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nf">DATE_ADD</span><span class="p">(</span><span class="k">new</span><span class="p">.</span><span class="n">END_DATE</span><span class="p">,</span><span class="k">INTERVAL</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="k">MINUTE</span><span class="p">))</span><span class="w"> </span><span class="k">THEN</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="w">            </span><span class="k">CALL</span><span class="w"> </span><span class="n">add_to_ban_list</span><span class="p">(</span><span class="k">new</span><span class="p">.</span><span class="n">STUDENT_ID</span><span class="p">,</span><span class="s1">&#39;2&#39;</span><span class="p">);</span><span class="w"> </span><span class="c1">#2代表灰名单</span>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="w">        </span><span class="k">ELSE</span><span class="w"> </span>
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="w">            </span><span class="k">CALL</span><span class="w"> </span><span class="n">add_to_ban_list</span><span class="p">(</span><span class="k">new</span><span class="p">.</span><span class="n">STUDENT_ID</span><span class="p">,</span><span class="s1">&#39;1&#39;</span><span class="p">);</span><span class="w"> </span><span class="c1">#1代表黑名单</span>
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="w">    </span><span class="k">END</span><span class="w"> </span><span class="k">IF</span><span class="p">;</span>
+</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="k">END</span><span class="w"> </span><span class="k">IF</span><span class="p">;</span>
+</span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a>
+</span><span id="__span-11-17"><a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a><span class="k">END</span><span class="w"> </span><span class="n">$$</span>
+</span><span id="__span-11-18"><a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a><span class="n">DELIMITER</span><span class="p">;</span>
+</span></code></pre></div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2019 - <script>document.write(new Date().getFullYear())</script> <a href="https://blog.xianyu.one" target="_blank">Xianyu</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://twitter.com/xianyu_one" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+      </a>
+    
+      
+      
+      <a href="mailto:me@xianyu.one" target="_blank" rel="noopener" title="" class="md-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m20 8-8 5-8-5V6l8 5 8-5m0-2H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Z"/></svg>
+      </a>
+    
+    <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" style="position:relative; top: 13px;">
+        <svg xmlns="http://www.w3.org/2000/svg" height="32px" width="91px" version="1.1" y="0px" x="0px" viewBox="0 0 88 31">
+            <title>Creative Commons “Attribution-Share Alike” license icon</title>
+            <path d="m2.499 0.352l83.127 0.148c1.161 0 2.198-0.173 2.198 2.333l-0.102 27.552h-87.321v-27.655c0-1.235 0.119-2.378 2.098-2.378z" fill="#AAB2AB"/>
+            <path d="m25.316 14.449c0.003 5.557-4.471 10.065-9.993 10.069-5.522 0.003-10.001-4.5-10.005-10.057v-0.012c-0.003-5.558 4.471-10.066 9.994-10.069 5.522-0.004 10.001 4.5 10.005 10.057-0.001 0.003-0.001 0.007-0.001 0.012zm21.148-11.143c4.349 0 7.875 3.548 7.875 7.925s-3.526 7.926-7.875 7.926c-4.35 0-7.875-3.548-7.875-7.926-0.001-4.377 3.525-7.925 7.875-7.925zm28.632 7.751c0.003 4.314-3.47 7.814-7.757 7.818-4.286 0.003-7.765-3.492-7.769-7.806v-0.012c-0.002-4.314 3.471-7.814 7.758-7.817s7.765 3.492 7.768 7.806v0.011z" fill="#FFF"/>
+            <path d="m23.446 6.252c2.217 2.232 3.326 4.964 3.326 8.197s-1.089 5.936-3.269 8.11c-2.313 2.289-5.046 3.434-8.2 3.434-3.116 0-5.802-1.135-8.057-3.405-2.256-2.271-3.383-4.982-3.383-8.138s1.127-5.889 3.383-8.198c2.198-2.232 4.884-3.348 8.057-3.348 3.212 0 5.926 1.116 8.143 3.348zm-14.707 1.501c-1.875 1.905-2.812 4.138-2.812 6.698 0 2.561 0.928 4.773 2.783 6.64s4.064 2.801 6.627 2.801 4.791-0.942 6.684-2.829c1.797-1.752 2.697-3.955 2.697-6.611 0-2.636-0.914-4.874-2.74-6.712s-4.04-2.757-6.641-2.757-4.801 0.923-6.598 2.77zm4.933 5.572c-0.287-0.628-0.715-0.942-1.287-0.942-1.011 0-1.516 0.685-1.516 2.054 0 1.37 0.505 2.055 1.516 2.055 0.667 0 1.145-0.333 1.431-1.002l1.401 0.751c-0.668 1.194-1.67 1.792-3.006 1.792-1.03 0-1.856-0.317-2.476-0.954-0.621-0.636-0.931-1.512-0.931-2.629 0-1.099 0.32-1.97 0.959-2.616s1.436-0.968 2.39-0.968c1.413 0 2.424 0.56 3.035 1.679l-1.516 0.78zm6.593 0c-0.287-0.628-0.707-0.942-1.261-0.942-1.031 0-1.547 0.685-1.547 2.054 0 1.37 0.516 2.055 1.547 2.055 0.669 0 1.137-0.333 1.404-1.002l1.433 0.751c-0.667 1.194-1.667 1.792-3.001 1.792-1.029 0-1.853-0.317-2.473-0.954-0.619-0.636-0.928-1.512-0.928-2.629 0-1.099 0.314-1.97 0.943-2.616 0.628-0.646 1.428-0.968 2.4-0.968 1.41 0 2.42 0.56 3.029 1.679l-1.546 0.78zm66.088-13.325h-84.706c-0.908 0-1.647 0.744-1.647 1.658v28.967c0 0.207 0.167 0.375 0.372 0.375h87.256c0.205 0 0.372-0.168 0.372-0.375v-28.967c0-0.914-0.739-1.658-1.647-1.658zm-84.706 0.749h84.705c0.498 0 0.903 0.408 0.903 0.909v20.109h-60.541c-2.219 4.038-6.494 6.779-11.401 6.779-4.908 0-9.183-2.738-11.4-6.779h-3.169v-20.109c0-0.501 0.405-0.909 0.903-0.909zm65.63 1.751c-2.355 0-4.349 0.827-5.98 2.481-1.675 1.712-2.512 3.737-2.512 6.077s0.837 4.351 2.512 6.034c1.674 1.683 3.668 2.524 5.98 2.524 2.342 0 4.371-0.849 6.089-2.546 1.616-1.611 2.427-3.616 2.427-6.012s-0.824-4.422-2.471-6.077c-1.645-1.654-3.66-2.481-6.045-2.481zm0.022 1.54c1.93 0 3.569 0.685 4.918 2.054 1.361 1.355 2.043 3.01 2.043 4.964 0 1.968-0.666 3.602-2.001 4.9-1.405 1.397-3.058 2.096-4.96 2.096-1.901 0-3.541-0.691-4.917-2.074-1.376-1.384-2.064-3.024-2.064-4.921s0.695-3.552 2.086-4.964c1.332-1.371 2.965-2.055 4.895-2.055zm-3.791 5.809c0.34-2.153 1.846-3.304 3.733-3.304 2.716 0 4.369 1.982 4.369 4.626 0 2.58-1.76 4.584-4.411 4.584-1.824 0-3.457-1.13-3.755-3.347h2.143c0.063 1.151 0.806 1.556 1.866 1.556 1.209 0 1.994-1.13 1.994-2.857 0-1.812-0.679-2.771-1.951-2.771-0.934 0-1.739 0.341-1.909 1.513l0.623-0.003-1.687 1.697-1.686-1.697 0.671 0.003zm-14.765-0.911c0-0.306-0.246-0.553-0.55-0.553h-3.478c-0.303 0-0.55 0.247-0.55 0.553v3.5h0.971v4.145h2.636v-4.145h0.971v-3.5zm-2.288-3.408c0.656 0 1.189 0.536 1.189 1.197s-0.533 1.197-1.189 1.197c-0.657 0-1.189-0.536-1.189-1.197s0.532-1.197 1.189-1.197zm-0.012-3.03c-2.355 0-4.349 0.827-5.981 2.481-1.675 1.711-2.512 3.737-2.512 6.076s0.837 4.351 2.512 6.034c1.674 1.683 3.668 2.524 5.981 2.524 2.342 0 4.371-0.849 6.088-2.547 1.619-1.611 2.428-3.615 2.428-6.012s-0.823-4.421-2.47-6.076c-1.645-1.654-3.661-2.48-6.046-2.48zm0.022 1.539c1.93 0 3.569 0.685 4.917 2.054 1.363 1.355 2.044 3.01 2.044 4.963 0 1.968-0.666 3.602-2.001 4.9-1.405 1.398-3.058 2.096-4.96 2.096-1.901 0-3.541-0.691-4.917-2.075-1.377-1.383-2.065-3.023-2.065-4.921 0-1.896 0.695-3.551 2.086-4.963 1.334-1.369 2.966-2.054 4.896-2.054z"/>
+            <path d="m69.277 24.171l1.816 4.888h-1.109l-0.367-1.089h-1.816l-0.381 1.089h-1.074l1.836-4.888h1.095zm0.062 2.997l-0.612-1.793h-0.014l-0.633 1.793h1.259zm-6.079 0.682c0.059 0.115 0.137 0.207 0.234 0.277 0.098 0.071 0.211 0.124 0.342 0.158 0.133 0.034 0.268 0.051 0.408 0.051 0.095 0 0.197-0.008 0.306-0.023s0.21-0.047 0.306-0.093c0.094-0.046 0.174-0.108 0.236-0.188 0.064-0.08 0.096-0.181 0.096-0.305 0-0.132-0.042-0.238-0.126-0.321-0.083-0.083-0.194-0.15-0.329-0.206-0.136-0.055-0.29-0.102-0.461-0.143-0.173-0.042-0.348-0.088-0.523-0.138-0.182-0.046-0.358-0.102-0.531-0.167-0.171-0.066-0.325-0.152-0.461-0.258-0.137-0.104-0.246-0.235-0.33-0.393-0.083-0.158-0.125-0.349-0.125-0.572 0-0.252 0.053-0.469 0.16-0.654 0.105-0.184 0.246-0.338 0.418-0.462 0.172-0.123 0.366-0.214 0.584-0.274 0.217-0.059 0.436-0.088 0.652-0.088 0.254 0 0.497 0.028 0.73 0.086 0.232 0.057 0.44 0.149 0.621 0.277 0.182 0.127 0.326 0.291 0.432 0.49 0.107 0.198 0.16 0.439 0.16 0.723h-1.036c-0.009-0.146-0.04-0.268-0.091-0.363-0.053-0.096-0.121-0.172-0.207-0.227s-0.184-0.094-0.295-0.115c-0.11-0.023-0.23-0.035-0.361-0.035-0.086 0-0.172 0.01-0.258 0.027-0.086 0.019-0.163 0.051-0.232 0.096-0.07 0.047-0.129 0.104-0.174 0.172s-0.067 0.155-0.067 0.26c0 0.096 0.019 0.174 0.054 0.232 0.037 0.061 0.109 0.115 0.215 0.165s0.254 0.101 0.441 0.151c0.188 0.049 0.434 0.113 0.736 0.191 0.092 0.018 0.217 0.051 0.377 0.1 0.161 0.047 0.32 0.123 0.479 0.229 0.159 0.105 0.296 0.246 0.412 0.422 0.115 0.176 0.173 0.4 0.173 0.674 0 0.225-0.044 0.432-0.13 0.623-0.086 0.192-0.214 0.357-0.384 0.496-0.171 0.141-0.381 0.248-0.632 0.326-0.252 0.078-0.544 0.116-0.874 0.116-0.268 0-0.527-0.033-0.779-0.1-0.251-0.065-0.474-0.171-0.667-0.312-0.192-0.143-0.346-0.323-0.459-0.543-0.113-0.219-0.168-0.479-0.163-0.78h1.036c-0.001 0.165 0.028 0.304 0.087 0.418zm-17.287-3.679h1.198l1.138 1.931 1.13-1.931h1.19l-1.803 3.012v1.876h-1.07v-1.903l-1.783-2.985zm-1.975 0c0.231 0 0.442 0.021 0.633 0.062s0.354 0.108 0.491 0.201c0.136 0.094 0.241 0.219 0.316 0.373 0.075 0.155 0.112 0.348 0.112 0.575 0 0.247-0.055 0.451-0.167 0.616-0.11 0.164-0.276 0.298-0.493 0.402 0.3 0.088 0.523 0.239 0.672 0.456 0.148 0.218 0.223 0.479 0.223 0.784 0 0.246-0.049 0.46-0.144 0.641-0.095 0.18-0.224 0.327-0.386 0.441-0.161 0.114-0.346 0.199-0.552 0.254-0.207 0.055-0.419 0.082-0.638 0.082h-2.358v-4.888h2.291v0.001zm-0.137 1.976c0.191 0 0.347-0.046 0.47-0.136 0.123-0.092 0.185-0.239 0.185-0.444 0-0.114-0.021-0.208-0.062-0.28s-0.095-0.129-0.164-0.17-0.146-0.07-0.235-0.086c-0.089-0.016-0.181-0.023-0.276-0.023h-1v1.14h1.082zm0.062 2.075c0.105 0 0.205-0.01 0.3-0.03 0.095-0.021 0.18-0.055 0.252-0.104 0.073-0.047 0.13-0.112 0.174-0.194s0.065-0.187 0.065-0.315c0-0.25-0.071-0.43-0.212-0.536-0.141-0.107-0.328-0.161-0.559-0.161h-1.166v1.341h1.146z" fill="#FFF"/>
+        </svg> 
+    </a>
+  </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "content.code.copy", "content.tabs.link", "toc.follow", "navigation.top", "search.suggest", "search.highlight"], "search": "../../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.cd18aaf1.min.js"></script>
+      
+        <script src="../../../../stylesheets/js/mathjax.js"></script>
+      
+        <script src="../../../../stylesheets/js/polyfill.min.js"></script>
+      
+        <script src="../../../../stylesheets/js/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
